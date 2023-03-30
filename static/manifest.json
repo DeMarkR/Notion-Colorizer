@@ -1,6 +1,6 @@
 {
-  "name": "chrome-extension-webpack",
-  "description": "My basic Chrome extension",
+  "name": "Notion Table Colorizer",
+  "description": "Color your Notion tables with tags",
   "version": "0.1.0",
   "manifest_version": 3,
   "background": {
@@ -8,17 +8,18 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["*://*.www.notion.so/*"],
       "js": ["contentScript.js"]
     }
   ],
-  "permissions": ["storage", "scripting"],
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": ["*://*.www.notion.so/*"],
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
   },
   "action": {
-    "default_title": "My basic Chrome extension",
+    "default_title": "Notion Table Colorizer",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "/icons/16x.png",

@@ -1,22 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notion table colors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/popup.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,300,1,0"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
 
-  <link rel="stylesheet" href="styles/popup.css">
-</head>
+  <body>
+    <div class="container text-center flex flex-col">
+      <h1 class="text-4xl font-bold">Notion Table Colors</h1>
+      <p class="text pt-5 pb-1">Add new color tag</p>
+      <div class="form-control mx-auto">
+        <div class="input-group">
+          <input
+            type="text"
+            placeholder="Tag name..."
+            class="input input-bordered"
+            id="ntc_tag_input"
+          />
+          <button class="btn btn-square" id="ntc_add_tag">
+            <span class="material-symbols-rounded bg-transparent">
+              add_circle
+            </span>
+          </button>
+        </div>
+      </div>
 
-<body>
-  <div class="container">
-    <h1>Hello World!</h1>
+      <p class="text pt-5 pb-1" id="ntc_tags_title">All color tags</p>
+      <div class="mx-auto">
+        <ul
+          class="menu bg-base-100 w-56 rounded-box"
+          id="ntc_list_container"
+        ></ul>
+      </div>
 
-    <p>Edit <u>static/popup.html</u> to change this page!</p>
+      <button class="btn btn-square w-auto mt-10" id="clear_storage">
+        Clear Storage
+      </button>
+    </div>
 
-    <button id="go-to-options" class="button" style="margin-top: 2rem;">Open options page</button>
-  </div>
-
-  <script src="popup.js"></script>
-</body>
+    <script src="popup.js"></script>
+  </body>
 </html>

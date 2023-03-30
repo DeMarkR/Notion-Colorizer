@@ -1,15 +1,10 @@
 @import 'common.scss';
 
-.container {
-  min-height: 200px;
-  min-width: 300px;
-
-  padding: 2rem;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-}
+ body {
+   background: #3d3d3d;
+   padding: 70px 70px;
+   color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
