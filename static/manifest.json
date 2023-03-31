@@ -1,6 +1,6 @@
 {
-  "name": "Notion Table Colorizer",
-  "description": "Color your Notion tables with tags",
+  "name": "Notion Colorizer",
+  "description": "Add some style to Notion",
   "version": "0.1.0",
   "manifest_version": 3,
   "background": {
@@ -19,7 +19,7 @@
     "open_in_tab": true
   },
   "action": {
-    "default_title": "Notion Table Colorizer",
+    "default_title": "Notion Colorizer",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "/icons/16x.png",
