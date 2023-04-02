@@ -2,9 +2,53 @@
 
  body {
    background: #3d3d3d;
-   padding: 70px 70px;
+   padding: 30px 70px 30px 70px;
+   width: 400px;
    color: white;
    display: flex;
    justify-content: center;
    align-items: center;
  }
+
+ .menu>:where(li:only-child){
+  border-radius: inherit !important;
+ }
+
+ #clear_storage {
+  position: relative;
+  transform-origin: top;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background: hsl(0 0% 20%);
+}
+
+.gradient-anim {
+  --bg-size: 400%;
+  --color-one: hsl(25, 100%, 50%);
+  --color-two: hsl(305, 95%, 55%);
+  font-family: sans-serif;
+  font-size: clamp(3rem, 25vmin, 8rem);
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  -webkit-background-clip: text !important;
+  animation: move-bg 8s linear infinite;
+
+}
+@keyframes move-bg {
+  to {
+    background-position: var(--bg-size) 0;
+  }
+}

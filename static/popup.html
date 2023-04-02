@@ -23,11 +23,14 @@
   </head>
 
   <body>
-    <div class="container text-center flex flex-col">
-      <h1 class="text-4xl font-bold">Notion Colorizer</h1>
-      <p class="text pt-5 pb-1">Add a new color tag</p>
-      <div class="form-control mx-auto">
-        <div class="input-group">
+    <div class="container text-center">
+      <h1 class="text-4xl font-bold gradient-anim w-max">Notion Colorizer</h1>
+
+      <div class="form-control pt-5">
+        <label class="label">
+          <span class="label-text">Add a new color tag</span>
+        </label>
+        <div class="input-group m-0 gap-0">
           <input
             type="text"
             placeholder="Tag name..."
@@ -45,13 +48,14 @@
       <p class="text pt-5 pb-1" id="ntc_tags_title">All color tags</p>
       <div class="mx-auto">
         <ul
-          class="menu bg-base-100 w-56 rounded-box"
+          class="menu bg-base-100 rounded-box"
           id="ntc_list_container"
+          style="background-color: transparent"
         ></ul>
       </div>
 
-      <button class="btn btn-square w-auto mt-10" id="clear_storage">
-        Clear Storage
+      <button class="btn btn-square w-full mt-10" id="clear_storage">
+        Clear Tags List
       </button>
     </div>
 

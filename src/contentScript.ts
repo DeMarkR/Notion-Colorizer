@@ -1,36 +1,28 @@
 import { getStorageData } from './storage';
 
-async function doesTextMatchFilters(text: string) {
-  const storage = await getStorageData();
-  if (!storage.colorTags || !storage.colorTags.length) return false;
-
-  //console.log(text + ' == ' + storage.colorTags.find((f) => f.tagName == text));
-
-  return storage.colorTags.includes({ tagName: text });
+function doesTextExistInSavedTags(text: string, savedTags: string[]): boolean {
+  return savedTags.some((t) => t.toLowerCase() == text.toLowerCase());
 }
 
-async function getColorTags(rows: Element[]): Promise<Element[]> {
-  return rows.filter(
-    async (el) => (await doesTextMatchFilters(el.textContent)) == true,
-  );
+async function getTagElements(rows: Element[]): Promise<Element[]> {
+  const storage = await getStorageData();
+  if (!storage.tags?.length) return [];
+
+  let tagElements: Element[] = [];
+  rows.forEach((r) => {
+    if (doesTextExistInSavedTags(r.textContent, storage.tags)) {
+      tagElements.push(r);
+    }
+  });
+
+  return tagElements;
 }
 
 async function colorTable(tableRows: Element[]) {
-  //   const allColorTags = await getColorTags(tableRows);
-  const storage = await getStorageData();
+  const tagElements = await getTagElements(tableRows);
+  if (!tagElements.length) return;
 
-  let allColorTags: Element[] = [];
-  tableRows.forEach((r) => {
-    //console.log(storage.colorTags);
-    storage.colorTags.forEach((t) => {
-      if (t.tagName.toLowerCase() == r.textContent.toLowerCase())
-        allColorTags.push(r);
-    });
-  });
-
-  if (!allColorTags.length) return;
-
-  allColorTags.forEach((element) => {
+  tagElements.forEach((element) => {
     const rgb = getComputedStyle(element).backgroundColor;
     const rgbValues: string[] = rgb
       .substring(4, rgb.length - 1)
@@ -56,7 +48,6 @@ async function fetchRows() {
   }
 }
 
-//let fetchInterval = as;
 const observer = new MutationObserver(fetchRows);
 observer.observe(document.body, {
   childList: true,

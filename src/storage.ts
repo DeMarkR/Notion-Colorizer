@@ -1,6 +1,6 @@
 // Define your storage data here
 export interface Storage {
-  colorTags: { tagName: string }[];
+  tags : string[];
 }
 
 export function getStorageData(): Promise<Storage> {
