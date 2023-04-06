@@ -1,7 +1,7 @@
 {
   "name": "Notion Colorizer",
   "description": "Add some style to Notion",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 3,
   "background": {
     "service_worker": "serviceWorker.js"
@@ -12,8 +12,7 @@
       "js": ["contentScript.js"]
     }
   ],
-  "permissions": ["storage", "scripting", "activeTab"],
-  "host_permissions": ["*://*.www.notion.so/*"],
+  "permissions": ["storage"],
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
